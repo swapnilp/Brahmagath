@@ -524,7 +524,7 @@ input#submit-btn {
 	border:18px solid #FFF;
 }
 .col_1 img {
-	width:100%;
+	width:auto;
 }
 .col_1 .layer {
 	position: absolute; 
@@ -2606,6 +2606,10 @@ a.order-btn {
 }
 }
 @media (max-width:930px){
+  .container {
+    width: 100%;
+  }
+
 .navbar-nav > li > a {
     padding: 6px 10px;
 }
@@ -2792,7 +2796,7 @@ i.icon_4 {
     padding: 0;
 }
 .pull-right {
-    float: none!important;
+    /*float: none!important; */
 }
 .navigation {
    margin-right: 30%;
