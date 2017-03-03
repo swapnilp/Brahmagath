@@ -1,0 +1,2 @@
+class CohabitantExpectation < ActiveRecord::Base
+end
