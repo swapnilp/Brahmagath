@@ -43,3 +43,9 @@ input[type="text"].form-text, input[type="password"].form-text, textarea.form-te
 .img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
       display: inline-block;
 }
+
+ul.nav_1 li a{
+  color:red !important;
+  
+}
+

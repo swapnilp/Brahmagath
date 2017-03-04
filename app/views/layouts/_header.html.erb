@@ -3,28 +3,28 @@
   <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="/"><img src="/assets/logo.png" alt="logo"></a>
-      <div class="pull-right">
+      <div>
+	<a class="brand" href="/"><img src="/assets/logo.png" alt="logo" style="max-height:40px;"></a>
+	<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+	  <i class="fa fa-bars fa-2x"></i>
+	</button>
+      </div>
+      <div class="pull-right navigationMenu">
         <nav class="navbar nav_bottom" role="navigation">
           <!-- Brand and toggle get grouped for better mobile display -->
 	  <div class="navbar-header nav_2">
-	    <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">Menu
-	      <span class="sr-only">Toggle navigation</span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	    </button>
+	    
 	    <a class="navbar-brand" href="#"></a>
 	  </div> 
 	  <!-- Collect the nav links, forms, and other content for toggling -->
 	  <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 	    <ul class="nav navbar-nav nav_1">
-	      <li><a href="/">Home</a></li>
-	      <li><a href="/about">About</a></li>
+	      <li><a class="<%= 'active' if request.path == '/'%>" href="/">Home</a></li>
+	      <li><a class="<%= 'active' if request.path == '/about'%>" href="/about">About</a></li>
 	      <li>
-		<a href="/search">Search</a>
+		<a class="<%= 'active' if request.path == '/search'%>" href="/search">Search</a>
 	      </li>
-	      <li class="last"><a href="/contact">Contacts</a></li>
+	      <li class="last"><a class="<%= 'active' if request.path == '/contact'%>" href="/contact">Contacts</a></li>
 	    </ul>
 	  </div><!-- /.navbar-collapse -->
 	</nav>
