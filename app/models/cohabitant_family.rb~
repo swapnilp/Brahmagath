@@ -1,2 +1,0 @@
-class CohabitantFamily < ActiveRecord::Base
-end
