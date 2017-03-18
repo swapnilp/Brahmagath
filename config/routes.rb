@@ -3,7 +3,16 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  resources :cohabitants
+  resources :cohabitants do
+    collection do
+      get "personal"
+      get "horoscop"
+      get "educational"
+      get "address"
+      get "family"
+      get "expectation"
+    end
+  end
   get "about" => "home#about"
   get "search" => "home#search"
   get "contact" => "home#contact"

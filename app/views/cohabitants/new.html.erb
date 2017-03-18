@@ -8,26 +8,56 @@
       </ul>
     </div>
     <div class="services">
+      <form action="/cohabitants/personal">
       <div class="col-sm-6 login_left">
-	<form>
+
 	  <div class="form-group">
-	    <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
-	    <input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required">
+	    <label for="first_name">First Name <span class="form-required" title="This field is required.">*</span></label>
+	    <input type="text" class="form-text required"  id="first_name" name="first_name" placeholder=" First Name" maxlength="20"></input>
 	  </div>
+	  
+	  <div class="form-group">
+	    <label for="edit-mobile">Mobile <span class="form-required" title="This field is required.">*</span></label>
+	    <input type="text" class="form-text required"  id="edit-mobile" name="mobile" placeholder="" maxlength="10"></input>
+	  </div>
+	  
+          <div class="form-group form-group1">
+            <label class="col-sm-7 control-lable paddingL0" for="gender">Gender : </label>
+            <div class="col-sm-5">
+              <div class="radios">
+		<label for="radio-01" class="label_radio">
+		  <input type="radio" checked=""> Male
+		</label>
+		<label for="radio-02" class="label_radio">
+		  <input type="radio"> Female
+		</label>
+	      </div>
+            </div>
+            <div class="clearfix"> </div>
+          </div>
+	  
+	  
 	  <div class="form-group">
 	    <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
 	    <input type="password" id="edit-pass" name="pass" size="60" maxlength="128" class="form-text required">
 	  </div>
-	  <div class="form-group">
-	    <label for="edit-name">Email <span class="form-required" title="This field is required.">*</span></label>
-	    <input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required">
+	  
+	  <div class="form-actions">
+	    <input type="submit" id="edit-submit" name="op" value="Submit" class="btn_1 submit">
 	  </div>
-	  <div class="age_select">
-	    <label for="edit-pass">Age <span class="form-required" title="This field is required.">*</span></label>
+
+      </div>
+      <div class="col-sm-6">
+	<div class="form-group">
+	  <label for="last_name">Last Name <span class="form-required" title="This field is required.">*</span></label>
+	  <input type="text" class="form-text required"  id="last_name" name="last_name" placeholder=" Last Name" maxlength="20"></input>
+	</div>
+	<div class="age_select">
+	    <label for="select-age">Age <span class="form-required" title="This field is required.">*</span></label>
 	    <div class="age_grid">
 	      <div class="col-sm-4 form_box">
                 <div class="select-block1">
-                  <select>
+                  <select id="select-age">
 		    <option value="">Date</option>
 		    <option value="">1</option>
 		    <option value="">2</option>
@@ -127,39 +157,17 @@
               </div>
               <div class="clearfix"> </div>
             </div>
-          </div>
-          <div class="form-group form-group1">
-            <label class="col-sm-7 control-lable paddingL0" for="sex">Sex : </label>
-            <div class="col-sm-5">
-              <div class="radios">
-		<label for="radio-01" class="label_radio">
-		  <input type="radio" checked=""> Male
-		</label>
-		<label for="radio-02" class="label_radio">
-		  <input type="radio"> Female
-		</label>
-	      </div>
-            </div>
-            <div class="clearfix"> </div>
-          </div>
-	  <div class="form-group">
-	    <label for="edit-name">Subject <span class="form-required" title="This field is required.">*</span></label>
-	    <textarea class="form-control bio" placeholder="" rows="3"></textarea>
+        </div>
+	<div class="form-group">
+	  <label for="email">Email <span class="form-required" title="This field is required.">*</span></label>
+	  <input type="text" id="email" name="name" value="" size="60" maxlength="60" class="form-text required">
+	</div>
+	<div class="form-group">
+	    <label for="confirm-pass">Confirm Password <span class="form-required" title="This field is required.">*</span></label>
+	    <input type="password" id="confirm-pass" name="pass" size="60" maxlength="128" class="form-text required">
 	  </div>
-	  <div class="form-actions">
-	    <input type="submit" id="edit-submit" name="op" value="Submit" class="btn_1 submit">
-	  </div>
-	</form>
       </div>
-      <div class="col-sm-6">
-	<ul class="sharing">
-	  <li><a href="#" class="facebook" title="Facebook"><i class="fa fa-boxed fa-fw fa-facebook"></i> Share on Facebook</a></li>
-	  <li><a href="#" class="twitter" title="Twitter"><i class="fa fa-boxed fa-fw fa-twitter"></i> Tweet</a></li>
-	  <li><a href="#" class="google" title="Google"><i class="fa fa-boxed fa-fw fa-google-plus"></i> Share on Google+</a></li>
-	  <li><a href="#" class="linkedin" title="Linkedin"><i class="fa fa-boxed fa-fw fa-linkedin"></i> Share on LinkedIn</a></li>
-	  <li><a href="#" class="mail" title="Email"><i class="fa fa-boxed fa-fw fa-envelope-o"></i> E-mail</a></li>
-	</ul>
-      </div>
+      </form>
       <div class="clearfix"> </div>
     </div>
   </div>

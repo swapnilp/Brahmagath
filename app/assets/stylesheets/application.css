@@ -40,6 +40,9 @@ input[type="text"].form-text, input[type="password"].form-text, textarea.form-te
   padding-left:0;
 }
 
+.padding0 {
+  padding: 0;
+}
 .img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
       display: inline-block;
 }
