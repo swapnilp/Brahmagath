@@ -1,16 +1,29 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {:registrations => 'registrations'}
+  devise_scope :user do
+    get "/register" => "registrations#new"
+  end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   resources :cohabitants do
-    collection do
+
+    member do
       get "personal"
       get "horoscop"
       get "educational"
-      get "address"
       get "family"
       get "expectation"
+      
+      post "save_personal"
+      post "save_horoscop"
+      post "save_educational"
+      post "save_family"
+      post "save_expectation"
     end
   end
   get "about" => "home#about"

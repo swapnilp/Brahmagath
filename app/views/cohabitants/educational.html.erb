@@ -2,61 +2,64 @@
   <div class="container">
     <div class="breadcrumb1">
       <ul>
-        <a href="index.html"><i class="fa fa-home home_1"></i></a>
+        <a href="<%= root_path %>"><i class="fa fa-home home_1"></i></a>
         <span class="divider">&nbsp;|&nbsp;</span>
         <li class="current-page">Occupational And Educational Details</li>
       </ul>
     </div>
     <div class="services">
-      <form action="/cohabitants/family">
+      <%= form_for @education, url: save_educational_cohabitant_path(@cohabitant), :method => "post" do |f| %>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="area">Education Area <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="area" name="area" placeholder="Area" maxlength="20">
+	      <label for="cohabitant_education_area">Education Area <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select :area, options_for_select([ "12 to GRADUATE", "POST GRADUATE", "DOCTOR", "ENGINNER"], f.object.area || "12 to GRADUATE"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="education">Education <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="education" name="education" placeholder="Education" maxlength="20">
+	      <label for="cohabitant_education_education">Education <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :education, autofocus: true , class: "form-text" , maxlength: "20", placeholder: "Education Area" %>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="occupation">Occupation <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="occupation" name="occupation" placeholder="Occupation" maxlength="20">
+	      <label for="cohabitant_education_occupation">Occupation <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :occupation, autofocus: true , class: "form-text" , maxlength: "20", placeholder: "Opucation" %>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="occupation_city">Occupation City <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="occupation_city" name="occupation_city" placeholder="Occupation_City" maxlength="20">
+	      <label for="cohabitant_education_occupation_city">Occupation City <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :occupation_city, autofocus: true , class: "form-text" , maxlength: "20", placeholder: "Opucation City" %>
+
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="income">Income <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="income" name="income" placeholder="Income" maxlength="20">
+	      <label for="cohabitant_education_income">Income <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :income, autofocus: true , class: "form-text" ,   onkeypress: "return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46", maxlength: "10", placeholder: "Income" %>
+
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="is_income_annua">Income Annua <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="is_income_annua" name="is_income_annua" placeholder="Income Annua" maxlength="20">
+	      <label for="cohabitant_education_is_income_annua">Income Annual <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select :is_income_annua, "<option value'=false' #{'selected' unless f.object.is_income_annua}>No</option><option value='true' #{'selected' if f.object.is_income_annua}>Yes</option>".html_safe, {}, class: "form-select"%>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0 ">
 	  <div class="form-actions">
 	    <input type="submit" id="edit-submit" name="op" value="Next" class="btn_1 submit">
+	    <a href="/cohabitants/<%= @cohabitant.id%>/family" class="skipLink">Skip</a>
 	  </div>
 	</div>
-      </form>
+      <%- end %>
       <div class="clearfix"> </div>
     </div>
   </div>

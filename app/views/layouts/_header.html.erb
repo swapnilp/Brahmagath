@@ -25,6 +25,8 @@
 		<a class="<%= 'active' if request.path == '/search'%>" href="/search">Search</a>
 	      </li>
 	      <li class="last"><a class="<%= 'active' if request.path == '/contact'%>" href="/contact">Contacts</a></li>
+	      <%- if current_user.present? %><li ><%= link_to('Edit Details', "/cohabitants/#{current_user.cohabitant.id}/personal") %> </li><%- end %>
+	      <%- if current_user.present? %><li ><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li><%- end %>
 	    </ul>
 	  </div><!-- /.navbar-collapse -->
 	</nav>

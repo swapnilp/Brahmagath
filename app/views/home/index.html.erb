@@ -3,8 +3,10 @@
     <div class="banner_info">
       <h3>Exclusive Maratha Matrimony</h3>
       <span style="display: inline-block;width: 100%;text-align: center;">
+	<%- unless current_user.present? %>
 	<a href="cohabitants/new" class="btn1 btn-4 btn-4c icon-arrow-right">Login</a>
-	<a href="cohabitants/new" class="btn1 btn-4 btn-4c icon-arrow-right">Register</a>
+	<a href="/users/sign_up" class="btn1 btn-4 btn-4c icon-arrow-right">Register</a>
+	<%- end %>
       </span>
     </div>
   </div>

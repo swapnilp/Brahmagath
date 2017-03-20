@@ -2,83 +2,84 @@
   <div class="container">
     <div class="breadcrumb1">
       <ul>
-        <a href="index.html"><i class="fa fa-home home_1"></i></a>
+        <a href="<%= root_path %>"><i class="fa fa-home home_1"></i></a>
         <span class="divider">&nbsp;|&nbsp;</span>
         <li class="current-page"> Horoscope Details</li>
       </ul>
     </div>
     <div class="services">
-      <form action="/cohabitants/educational">
+      <%= form_for @horoscope, url: save_horoscop_cohabitant_path(@cohabitant), :method => "post" do |f| %>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="Rashi">Rashi <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="Rashi" name="Rashi" placeholder="Rashi" maxlength="20">
+	      <label for="cohabitant_horoscop_rashi">Rashi <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select "rashi", options_for_select([ "MESH", "VRUSHABH", "MITHUN", "KARK", "SINHA", "KANYA", "TULA", "VRISCHIK", "DHANU", "MAKAR", "KUMBH", "MEEN"], f.object.rashi ||"MESH"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="Nakshtra">Nakshtra <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="Nakshtra" name="" placeholder="Nakshtra" maxlength="20">
+	      <label for="cohabitant_horoscop_nakshtra">Nakshtra <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select "nakshtra", options_for_select([ "ASHVINI", "BHARANI", "KRITTIKA", "ROHINI", "MRIGASHĪRSHA", "ARDRA", "PUNARVASU", "PUSHYA" "ĀSHLESHĀ", "MAGHĀ", "PŪRVA PHALGUNĪ", "UTTARA PHALGUNĪ", "HASTA", "CHITRA", "SWĀTI", "VISHAKHA", "ANURADHA", "JYESHTHA", "MULA", "PURVA ASHADHA", "UTTARA ASHADHA", "ABHIJIT", "SRAVANA", "DHANISHTA", "SHATABHISHA", "PURVA BHADRAPADA", "UTTARA BHĀDRAPADĀ", "REVATI" ], f.object.nakshtra || "ASHVINI"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="charan">Charan <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="charan" name="charan" placeholder="Charan" maxlength="20">
+	      <label for="cohabitant_horoscop_charan">Charan <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select :charan, options_for_select([ "1", "2", "3", "4" ], f.object.charan ||"1"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="Nadi">Nadi <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="Nadi" name="Nadi" placeholder="Nadi" maxlength="20">
+	      <label for="cohabitant_horoscop_nadi">Nadi <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select :nadi, options_for_select(["ADHYA", "MADHYA", "ANTYA"], f.object.nadi || "ADHYA"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="Gan">Gan <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="Gan" name="Gan" placeholder="Gan" maxlength="20">
+	      <label for="cohabitant_horoscop_gan">Gan <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select :gan, options_for_select(["DEV GAN", "MANUSHYA GAN", "RAKSHAS GAN"], f.object.gan || "DEV GAN"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="Birth_Place">Birth Place <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="birth_place" name="birth_place" placeholder="Birth Place" maxlength="20">
+	      <label for="cohabitant_horoscop_birth_place">Birth Place <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :birth_place, autofocus: true , class: "form-text" , maxlength: "20", placeholder: "Birth Place" %>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="Birth Time">Birth Time <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="Birth Time" name="Birth Time" placeholder="Birth Time" maxlength="20">
+	      <label for="cohabitant_horoscop_birth_time">Birth Time <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :birth_time, autofocus: true , class: "form-text" , maxlength: "20", placeholder: "Birth Time" %>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="Mangal">Mangal <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="Mangal" name="Mangal" placeholder="Mangal" maxlength="20">
+	      <label for="cohabitant_horoscop_mangal">Mangal <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select :mangal, options_for_select(["YES", "NO", "SAUMYA", "NIRDOSH", "NOT KNOWN"], f.object.mangal || "NOT KNOWN"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="devak">Devak <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="devak" name="devak" placeholder="Devak" maxlength="20">
+	      <label for="cohabitant_horoscop_devak">Devak <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :devak, autofocus: true , class: "form-text" , maxlength: "20", placeholder: "Devak" %>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0 ">
 	  <div class="form-actions">
 	    <input type="submit" id="edit-submit" name="op" value="Next" class="btn_1 submit">
+	    <a href="/cohabitants/<%= @cohabitant.id%>/educational" class="skipLink">Skip</a>
 	  </div>
 	</div>
-      </form>
+      <%- end %>
       <div class="clearfix"> </div>
     </div>
   </div>

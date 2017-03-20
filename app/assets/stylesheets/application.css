@@ -15,7 +15,7 @@
  *= require_self
  */
 
-input[type="text"].form-text, input[type="password"].form-text, textarea.form-textarea, input[type="text"].form-select {
+input[type="text"].form-text, input[type="password"].form-text, textarea.form-textarea, input[type="text"].form-select, input[type="email"].form-text {
   display: block;
   width: 100%;
   height: 34px;
@@ -52,3 +52,7 @@ ul.nav_1 li a{
   
 }
 
+
+.skipLink{
+  margin-left:20px;
+}

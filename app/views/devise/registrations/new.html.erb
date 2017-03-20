@@ -1,0 +1,102 @@
+<div class="grid_3">
+  <div class="container">
+    <div class="breadcrumb1">
+      <ul>
+        <a href="index.html"><i class="fa fa-home home_1"></i></a>
+        <span class="divider">&nbsp;|&nbsp;</span>
+        <li class="current-page">Register</li>
+      </ul>
+    </div>
+    <div class="services">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="col-sm-12 padding0">
+	<div class="col-sm-4 paddingL0 ">
+	  <div class="form-group">
+	    <%= f.label :first_name, "First Name *" %><br />
+	    <%= f.text_field :first_name, autofocus: true , class: "form-text", required: true %>
+	  </div>
+	</div>
+	<div class="col-sm-4">
+	  <div class="form-group">
+	    <%= f.label :middle,  "Middle Name *"%><br />
+	    <%= f.text_field :middle_name, autofocus: true , class: "form-text", required: true %>
+	  </div>
+	</div>
+	<div class="col-sm-4">
+	  <div class="form-group">
+	    <%= f.label :last_name,  "Last Name *"%><br />
+	    <%= f.text_field :last_name, autofocus: true , class: "form-text", required: true %>
+	  </div>
+	</div>
+      </div>
+      <div class="col-sm-12 padding0">
+	<div class="col-sm-6 paddingL0 ">
+	  <div class="form-group form-group1">
+            <label class="col-sm-7 control-lable paddingL0" for="gender">Gender : </label>
+            <div class="col-sm-5">
+              <div class="radios">
+		<label for="user_gender_male" class="label_radio">
+		  <%= f.radio_button :gender, 'male', :checked => true %>  Male
+		</label>
+		<label for="user_gender_female" class="label_radio">
+		  <%= f.radio_button :gender, 'female', :checked => false %> Female
+		</label>
+	      </div>
+            </div>
+            <div class="clearfix"> </div>
+          </div>
+	</div>
+	<div class="col-sm-6">
+	  <div class="age_select">
+	    <label for="select-age">Age <span class="form-required" title="This field is required.">*</span></label>
+	    
+          </div>
+	</div>
+      </div>
+      <div class="col-sm-12 padding0">
+	<div class="col-sm-6 paddingL0 ">
+	  <div class="form-group">
+	    <%= f.label :mobile, "Mobile *" %><br />
+	    <%= f.text_field :mobile, autofocus: true , class: "form-text" , required: true, :pattern => '^[0-9]{10}$',  onkeypress: "return event.charCode >= 48 && event.charCode <= 57", maxlength: "10" %>
+	  </div>
+	</div>
+	<div class="col-sm-6">
+	  <div class="form-group">
+	    <%= f.label :email, "Email *" %><br />
+	    <%= f.email_field :email, autofocus: true , class: "form-text", required: true%>
+	  </div>
+	</div>
+      </div>
+      <div class="col-sm-12 padding0">
+	<div class="col-sm-6 paddingL0 ">
+	  <div class="form-group">
+	    <%= f.label :password, "Password *" %>
+	    <% if @validatable %>
+	    <em>(<%= @minimum_password_length %> characters minimum)</em>
+	    <% end %><br />
+	    <%= f.password_field :password, autocomplete: "off", class: "form-text", required: true %>
+	  </div>
+	</div>
+	<div class="col-sm-6">
+	  <div class="form-group">
+	    <%= f.label :password_confirmation, "Confirm *" %><br />
+	    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-text", required: true %>
+	  </div>
+	</div>
+      </div>
+      <div class="col-sm-12 padding0">
+	<div class="form-actions">
+	  <%= f.submit "Sign up", class: "btn_1 submit"%>
+	  <%= render "devise/shared/links" %>
+	</div>
+      </div>
+      <% end %>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>
+
+
+
+

@@ -2,38 +2,38 @@
   <div class="container">
     <div class="breadcrumb1">
       <ul>
-        <a href="index.html"><i class="fa fa-home home_1"></i></a>
+        <a href="<%= root_path %>"><i class="fa fa-home home_1"></i></a>
         <span class="divider">&nbsp;|&nbsp;</span>
         <li class="current-page">Expectation Details</li>
       </ul>
     </div>
     <div class="services">
-      <form action="/">
+      <%= form_for @expectation, url: save_expectation_cohabitant_path(@cohabitant), :method => "post" do |f| %>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="cities"> Cities<span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="cities" name="cities" placeholder="cities" maxlength="20">
+	      <label for="cohabitant_expectation_cities"> Cities<span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :cities, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "City" %>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="mangal">Mangal <Span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="mangal" name="mangal" placeholder="Mangal" maxlength="20">
+	      <label for="cohabitant_expectation_mangal">Mangal <Span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select :mangal, options_for_select(["YES", "NO", "SAUMYA", "NIRDOSH", "DOESNT MATTER"], f.object.mangal || "DOESNT MATTER"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="caste"> caste<span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="caste" name="caste" placeholder="Caste" maxlength="20">
+	      <label for="cohabitant_expectation_caste"> caste<span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select "caste", options_for_select([ "DESHMUKH", "96 KULI", "MARATHA", "KUNBI", "DESHMUKH MARATHA", "96 KULI MARATHA", "TIRALE KUNBI" ], f.object.caste || "MARATHA"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="age_difference">Age Difference <Span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="age_difference" name="age_difference" placeholder="Age Difference" maxlength="20">
+	      <label for="cohabitant_expectation_age_difference">Age Difference <Span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select :age_difference, options_for_select(["1", "2", "3", "4", "5", "6", "7", "8"], f.object.age_difference || "DOESNT MATTER"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	</div>
@@ -41,14 +41,14 @@
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="min_height"> Min Height<span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="min_height" name="min_height" placeholder="Min Height" maxlength="20">
+	      <label for="cohabitant_expectation_min_height"> Min Height<span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :min_height, autofocus: true , class: "form-text" , onkeypress: "return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46", maxlength: "5", placeholder: "Min Height" %>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="divorcee">Divorcee <Span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="divorcee" name="divorcee" placeholder="divorcee" maxlength="20">
+	      <label for="cohabitant_expectation_divorcee">Divorcee <Span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select :divorcee, "<option value'=false' #{'selected' unless f.object.divorcee}>No</option><option value='true' #{'selected' if f.object.divorcee}>Yes</option>".html_safe, {}, class: "form-select"%>
 	    </div>
 	  </div>
 	</div>
@@ -56,14 +56,14 @@
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="occupation"> Occupation<span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="occupation" name="occupation" placeholder="occupation" maxlength="20">
+	      <label for="cohabitant_expectation_occupation"> Occupation<span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :occupation, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Occupation" %>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="education">Education <Span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="education" name="education" placeholder="Education" maxlength="20">
+	      <label for="cohabitant_expectation_education">Education <Span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :education, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Education" %>
 	    </div>
 	  </div>
 	</div>
@@ -71,10 +71,10 @@
 
 	<div class="col-sm-12 padding0 ">
 	  <div class="form-actions">
-	    <input type="submit" id="edit-submit" name="op" value="Next" class="btn_1 submit">
+	    <input type="submit" id="edit-submit" name="op" value="Finish" class="btn_1 submit">
 	  </div>
 	</div>
-      </form>
+      <%- end %>
       <div class="clearfix"> </div>
     </div>
   </div>

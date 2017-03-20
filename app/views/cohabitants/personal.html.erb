@@ -2,66 +2,67 @@
   <div class="container">
     <div class="breadcrumb1">
       <ul>
-        <a href="index.html"><i class="fa fa-home home_1"></i></a>
+        <a href="<%= root_path %>"><i class="fa fa-home home_1"></i></a>
         <span class="divider">&nbsp;|&nbsp;</span>
         <li class="current-page">Personal Details</li>
       </ul>
     </div>
     <div class="services">
-      <form action="/cohabitants/horoscop">
-	<div class="col-sm-12 padding0">
+      <%= form_for @cohabitant, url: save_personal_cohabitant_path(@cohabitant), :method => "post" do |f| %>
+        <div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="sub_cast">Sub Cast <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="sub_cast" name="sub_cast" placeholder="Sub Cast" maxlength="20">
+	      <label for="cohabitant_sub_cast">Sub Cast <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select "sub_cast", options_for_select([ "DESHMUKH", "96 KULI", "MARATHA", "KUNBI", "DESHMUKH MARATHA", "96 KULI MARATHA", "TIRALE KUNBI" ], f.object.sub_cast || "MARATHA"), {}, class: "form-select"%>
+	      <!--input type="text" class="form-text required"  id="sub_cast" name="sub_cast" placeholder="Sub Cast" maxlength="20" -->
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="married_status">Married Status <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="married_status" name="married_status" placeholder="Married Status" maxlength="20">
+	      <label for="cohabitant_married_status">Married Status <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select "married_status", options_for_select(["UNMARRIED BOY", "UNMARRIED GIRL", "DIVORCEE BOY", "DIVORCEE Girl" ], f.object.married_status || "UNMARRIED BOY"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="height">Height <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="height" name="height" placeholder="Height" maxlength="20">
+	      <label for="cohabitant_height">Height <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :height, autofocus: true , class: "form-text" , onkeypress: "return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46", maxlength: "5", placeholder: "Height" %>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="Weight">Weight <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="weight" name="weight" placeholder="Weight" maxlength="20">
+	      <label for="cohabitant_weight">Weight <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :weight, autofocus: true , class: "form-text" ,   onkeypress: "return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46", maxlength: "5", placeholder: "Weight" %>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="Blood_group">Blood Group <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="blood_group" name="blood" placeholder="Blood Group" maxlength="20">
+	      <label for="cohabitant_blood_group">Blood Group <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select :blood_group, options_for_select(["A+", "A-", "B","B-", "O", "O-" "AB+", "AB-" ], f.object.blood_group || "A+"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="complexion">Complexion <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="complexion" name="complexion" placeholder="Complexion" maxlength="20">
+	      <label for="cohabitant_complexion">Complexion <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select :complexion, options_for_select(["FAIR" , "GORA", "SAWALA", "GAVHAL", "NIMGORA", "BLACK", "GORA, SMART", "FAIR, SMART", "GAVHAL, SMART"], f.object.complexion || "FAIR"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
-	      <label for="is_physical_disabilities">Physical Disabilities <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="is_physical_disabilities" name="is_physical_disabilities" placeholder="Physical Disabilities" maxlength="20">
+	      <label for="cohabitant_is_physical_disabilities">Physical Disabilities <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.select :is_physical_disabilities, "<option value'=false' #{'selected' unless f.object.is_physical_disabilities}>No</option><option value='true' #{'selected' if f.object.is_physical_disabilities}>Yes</option>".html_safe, {}, class: "form-select"%>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
-	      <label for="physical_disabilities">Physical Disabilities <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="physical_disabilities" name="physical_disabilities" placeholder="Physical Disabilities if yes" maxlength="20">
+	      <label for="cohabitant_physical_disabilities">Physical Disabilities <span class="form-required" title="This field is required.">*</span></label>
+	      <%= f.text_field :physical_disabilities, autofocus: true , class: "form-text" , maxlength: "20", placeholder: "Physical Disabilities" %>
 	    </div>
 	  </div>
 	</div>
@@ -69,22 +70,24 @@
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
 	      <label for="spectacles">Spectacles <span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="spectacles" name="spectacles" placeholder="Spectacles" maxlength="20">
+	      <%= f.select "spectacles", "<option value'=false' #{'selected' unless f.object.spectacles}>No</option><option value='true' #{'selected' if f.object.spectacles}>Yes</option>".html_safe, {}, class: "form-select"%>
+
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
 	      <label for="lens"> Lens<span class="form-required" title="This field is required.">*</span></label>
-	      <input type="text" class="form-text required"  id="lens" name="lens" placeholder="Lens" maxlength="20">
+	      <%= f.text_field :lens, autofocus: true , class: "form-text" , onkeypress: "return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46", maxlength: "5", placeholder: "Lens" %>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-12 padding0 ">
 	  <div class="form-actions">
 	    <input type="submit" id="edit-submit" name="op" value="Next" class="btn_1 submit">
+	    <a href="/cohabitants/<%= @cohabitant.id%>/horoscop" class="skipLink">Skip</a>
 	  </div>
 	</div>
-      </form>
+      <%- end %>
       <div class="clearfix"> </div>
     </div>
   </div>
