@@ -6,8 +6,8 @@ class Photo < ActiveRecord::Base
 
   has_attached_file :image,
     :whiny => true,
-    :path => "/system/phptos/:id/:style/:filename",
-    :url => "/system/photos/:id/:style/:filename",
+    :path => ":rails_root/public/photos/:id/:style/:filename",
+    :url => "/photos/:id/:style/:filename",
     :styles => { :medium => "400x400>",
       :thumb => "200x" }
 

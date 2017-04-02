@@ -2,7 +2,7 @@ class CohabitantsController < ApplicationController
   before_action :authenticate_user!,  only: [:personal, :save_personal, :horoscop, :educational, :family, :expectation, :save_horoscop, :save_educational, :save_family, :save_expectation]
   
   def show
-    @cohabitant = Cohabitant.includes([:cohabitant_education, :cohabitant_family, :cohabitant_horoscop, :cohabitant_expectation]).where(id: params[:id]).first
+    @cohabitant = Cohabitant.includes([:cohabitant_education, :cohabitant_family, :cohabitant_horoscop, :cohabitant_expectation, :photos]).where(id: params[:id]).first
     if @cohabitant
       @self_user = (@cohabitant.user_id == current_user.id) rescue false
     else
@@ -26,7 +26,10 @@ class CohabitantsController < ApplicationController
   def save_personal
     @cohabitant = current_user.cohabitant
     if @cohabitant.present?
-      @cohabitant.update_attributes(personal_params)
+      @cohabitant.update_attributes(personal_params.except(:image))
+      if personal_params[:image].present?
+        @cohabitant.photos.new({image: personal_params[:image]}).save
+      end
       redirect_to "/cohabitants/horoscop"
     else
       redirect_to root_path
@@ -138,7 +141,7 @@ class CohabitantsController < ApplicationController
   protected
   
   def personal_params
-    params.require(:cohabitant).permit(:sub_cast, :married_status, :height, :weight, :complexion, :is_physical_disabilities, :spectacles, :physical_disabilities, :lens, :blood_group)
+    params.require(:cohabitant).permit(:sub_cast, :married_status, :height, :weight, :complexion, :is_physical_disabilities, :spectacles, :physical_disabilities, :lens, :blood_group, :image)
   end
   
   def horoscope_params
