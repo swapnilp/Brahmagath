@@ -26,7 +26,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
     cohabitant = Cohabitant.new({user_id: resource.id, first_name: resource.first_name, last_name: resource.last_name, mobile: resource.mobile, middle_name: "asdasdads", date_of_birth: Date.today})
     if cohabitant.save
-      respond_with resource, location: personal_cohabitant_path(cohabitant)
+      respond_with resource, location: personal_cohabitants_path(cohabitant)
     else
       respond_with resource, location: after_sign_up_path_for(resource)
     end
