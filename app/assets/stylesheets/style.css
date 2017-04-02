@@ -2721,6 +2721,9 @@ ul.feature_list.feature_list1 {
   }
 }
 @media  only screen and (max-width: 768px){
+  .formLoading {
+    display: none;
+  }
   .navigationMenu{
     width:100%;
   }

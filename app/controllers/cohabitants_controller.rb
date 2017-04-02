@@ -6,6 +6,10 @@ class CohabitantsController < ApplicationController
     if params[:gender].present?
       @cohabitants = @cohabitants.where(gender: params[:gender])
     end
+    if current_user.present?
+      @cohabitants = @cohabitants.where("user_id not in (?)", [current_user.id] )
+      
+    end
     @cohabitants = @cohabitants.order("id desc").page(params[:page])
       
   end

@@ -63,12 +63,7 @@
 			    </tr>
 			  </tbody>
 			</table>
-			<%- unless current_user%>
-			<ul class="login_details">
-			  <li>Already a member? <%= link_to "Login Now", new_user_session_path %></li>
-			  <li>If not a member? <%= link_to "Register Now", new_user_registration_path %></li>
-			</ul>
-			<%- end %>
+			
 		      </div>
 		      <div class="col-md-6 basic_1-left">
 			<table class="table_working_hours">
@@ -120,6 +115,12 @@
 			  </tbody>
 			</table>
 		      </div>
+		      <%- unless current_user%>
+			<ul class="login_details">
+			  <li>Already a member? <%= link_to "Login Now", new_user_session_path %></li>
+			  <li>If not a member? <%= link_to "Register Now", new_user_registration_path %></li>
+			</ul>
+			<%- end %>
 		      <div class="clearfix"> </div>
 		    </div>
 		  </div>
