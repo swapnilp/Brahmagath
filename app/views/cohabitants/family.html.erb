@@ -7,6 +7,7 @@
         <li class="current-page">Family Details</li>
       </ul>
     </div>
+    <%= render "form_loading.html.erb", locals: {f: "family" } %>
     <div class="services">
       <%= form_for @education, url: save_family_cohabitants_path, :method => "post" do |f| %>
 	<div class="col-sm-12 padding0">

@@ -7,6 +7,7 @@
         <li class="current-page">Occupational And Educational Details</li>
       </ul>
     </div>
+    <%= render "form_loading.html.erb",  locals: {f: "educational" } %>
     <div class="services">
       <%= form_for @education, url: save_educational_cohabitants_path, :method => "post" do |f| %>
 	<div class="col-sm-12 padding0">

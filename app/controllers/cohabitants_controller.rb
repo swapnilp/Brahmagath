@@ -1,6 +1,11 @@
 class CohabitantsController < ApplicationController
   before_action :authenticate_user!,  only: [:personal, :save_personal, :horoscop, :educational, :family, :expectation, :save_horoscop, :save_educational, :save_family, :save_expectation]
   
+  def index
+    @cohabitants = Cohabitant.includes([:cohabitant_education, :cohabitant_family, :cohabitant_horoscop, :cohabitant_expectation, :photos]).all
+    
+  end
+  
   def show
     @cohabitant = Cohabitant.includes([:cohabitant_education, :cohabitant_family, :cohabitant_horoscop, :cohabitant_expectation, :photos]).where(id: params[:id]).first
     if @cohabitant

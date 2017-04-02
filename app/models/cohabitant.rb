@@ -8,5 +8,8 @@ class Cohabitant < ActiveRecord::Base
   has_many :photos
   belongs_to :user
 
+  def profile_image
+    self.photos.last.try(:image).try(:url) || "/assets/#{self.gender}.jpg"
+  end
 
 end

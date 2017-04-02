@@ -7,6 +7,7 @@
         <li class="current-page">Personal Details</li>
       </ul>
     </div>
+    <%= render "form_loading.html.erb",  locals: {f: "personal" }%>
     <div class="services">
       <%= form_for @cohabitant, url: save_personal_cohabitants_path, :method => "post" do |f| %>
         <div class="col-sm-12 padding0">

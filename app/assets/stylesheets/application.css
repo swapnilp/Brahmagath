@@ -74,3 +74,24 @@ ul.nav_1 li a{
 .red {
   color: red;
 }
+
+.formLoading {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom:20px;
+}
+
+.formLoading .red a {
+  
+    color: red;
+    border: 1px solid #999;
+    border-radius: 57px;
+    padding: 15px;
+}
+
+.formLoading a {
+  color: #000;
+  border: 1px solid #999;
+  border-radius: 57px;
+  padding: 15px;
+}

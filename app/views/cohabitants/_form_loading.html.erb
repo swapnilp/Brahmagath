@@ -1,0 +1,15 @@
+<div class="col-sm-12 formLoading">
+  
+  <div class="col-sm-3 text-center <%= 'red' if ['personal', 'horoscope', 'educational', 'family'].include?(locals[:f]) %>">
+    <a href="/cohabitants/personal">Personal</a>
+  </div>
+  <div class="col-sm-3  text-center <%= 'red' if ['horoscope', 'educational', 'family'].include?(locals[:f]) %>">
+    <a href="/cohabitants/horoscop">Horoscope</a>
+  </div>
+  <div class="col-sm-3 text-center <%= 'red' if ['educational', 'family'].include?(locals[:f]) %>">
+    <a href="/cohabitants/educational">Educational</a>
+  </div>
+  <div class="col-sm-3 text-center <%= 'red' if ['family'].include?(locals[:f]) %>">
+    <a href="/cohabitants/family">Family</a>
+  </div>
+</div>
