@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem "font-awesome-rails"
 gem 'devise'
 gem "paperclip", "~> 5.0.0"
+gem 'kaminari'
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby

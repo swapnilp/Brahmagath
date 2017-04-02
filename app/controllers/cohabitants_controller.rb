@@ -6,6 +6,7 @@ class CohabitantsController < ApplicationController
     if params[:gender].present?
       @cohabitants = @cohabitants.where(gender: params[:gender])
     end
+    @cohabitants = @cohabitants.order("id desc").page(params[:page])
       
   end
   
