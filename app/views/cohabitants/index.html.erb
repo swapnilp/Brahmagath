@@ -10,7 +10,9 @@
     <div class="col-md-12 profile_left2">
       <div class="profile_top">
 	<div class="clearfix"> </div>
-	<%- @cohabitants.each do |cohabitant| %>
+	<%- @cohabitants.in_groups_of(2).each do |cohabitant_group|%>
+	<div class="col-sm-12 padding0">
+	<%- cohabitant_group.compact.each do |cohabitant| %>
 	<div class="jobs-item with-thumb col-sm-6">
 	  <div class="thumb_top">
 	    <div class="thumb"><a href="/cohabitants/<%= cohabitant.id%>"><img src="<%= cohabitant.profile_image %>" class="img-responsive" alt=""/></a></div>
@@ -27,7 +29,9 @@
 	    <div class="clearfix"> </div>
 	  </div>
 	</div>
-	<%- end %>	
+	<%- end %>
+	</div>
+	<%- end %>
       </div>
       <ul class="pagination col-sm-12">
         <li class="active"><a href="#">1</a></li>
