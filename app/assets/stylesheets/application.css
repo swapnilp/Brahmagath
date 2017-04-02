@@ -70,3 +70,7 @@ ul.nav_1 li a{
   right:0;
   cursor: pointer;
 }
+
+.red {
+  color: red;
+}
