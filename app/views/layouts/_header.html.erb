@@ -19,12 +19,11 @@
 	  <!-- Collect the nav links, forms, and other content for toggling -->
 	  <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 	    <ul class="nav navbar-nav nav_1">
-	      <li><a class="<%= 'active' if request.path == '/'%>" href="/">Home</a></li>
-	      <li><a class="<%= 'active' if request.path == '/about'%>" href="/about">About</a></li>
+	      <li><a class="<%= 'active' if (request.path == '/cohabitants' && params[:gender] == 'female')%>" href="/cohabitants?gender=female">Brides</a></li>
+	      <li><a class="<%= 'active' if (request.path == '/cohabitants' && params[:gender] == 'male')%>" href="/cohabitants?gender=male">Grooms</a></li>
 	      <li>
 		<a class="<%= 'active' if request.path == '/search'%>" href="/search">Search</a>
 	      </li>
-	      <li class="last"><a class="<%= 'active' if request.path == '/contact'%>" href="/contact">Contacts</a></li>
 	      <%- if current_user.present? %><li ><%= link_to('Edit Details', "/cohabitants/personal") %> </li><%- end %>
 	      <%- if current_user.present? %><li ><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li><%- end %>
 	    </ul>

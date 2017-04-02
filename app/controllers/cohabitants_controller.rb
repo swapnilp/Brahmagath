@@ -3,7 +3,10 @@ class CohabitantsController < ApplicationController
   
   def index
     @cohabitants = Cohabitant.includes([:cohabitant_education, :cohabitant_family, :cohabitant_horoscop, :cohabitant_expectation, :photos]).all
-    
+    if params[:gender].present?
+      @cohabitants = @cohabitants.where(gender: params[:gender])
+    end
+      
   end
   
   def show
