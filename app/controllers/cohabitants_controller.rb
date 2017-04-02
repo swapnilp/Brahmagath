@@ -1,8 +1,13 @@
 class CohabitantsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!,  only: [:personal, :save_personal, :horoscop, :educational, :family, :expectation, :save_horoscop, :save_educational, :save_family, :save_expectation]
   
   def show
-    
+    @cohabitant = Cohabitant.includes([:cohabitant_education, :cohabitant_family, :cohabitant_horoscop, :cohabitant_expectation]).where(id: params[:id]).first
+    if @cohabitant
+      @self_user = (@cohabitant.user_id == current_user.id) rescue false
+    else
+      redirect_to root_path
+    end
   end
 
   def new
@@ -10,7 +15,7 @@ class CohabitantsController < ApplicationController
   end
 
   def personal
-    @cohabitant = Cohabitant.where(id: params[:id]).first
+    @cohabitant = current_user.cohabitant
     if @cohabitant.present?
     else
       redirect_to root_path
@@ -19,17 +24,17 @@ class CohabitantsController < ApplicationController
   end
 
   def save_personal
-    @cohabitant = Cohabitant.where(id: params[:id]).first
+    @cohabitant = current_user.cohabitant
     if @cohabitant.present?
       @cohabitant.update_attributes(personal_params)
-      redirect_to "/cohabitants/#{@cohabitant.id}/horoscop"
+      redirect_to "/cohabitants/horoscop"
     else
       redirect_to root_path
     end
   end
 
   def horoscop
-    @cohabitant = Cohabitant.where(id: params[:id]).first
+    @cohabitant = current_user.cohabitant
     if @cohabitant.present?
       @horoscope = @cohabitant.build_cohabitant_horoscop if @cohabitant.cohabitant_horoscop.nil?
       @horoscope = @cohabitant.cohabitant_horoscop if @cohabitant.cohabitant_horoscop.present?
@@ -39,21 +44,21 @@ class CohabitantsController < ApplicationController
   end
 
   def save_horoscop
-    @cohabitant = Cohabitant.where(id: params[:id]).first
+    @cohabitant = current_user.cohabitant
     if @cohabitant.present?
       if @cohabitant.cohabitant_horoscop.nil?
         @cohabitant.build_cohabitant_horoscop(horoscope_params).save
       else
         @cohabitant.cohabitant_horoscop.update_attributes(horoscope_params)
       end
-      redirect_to "/cohabitants/#{@cohabitant.id}/educational"
+      redirect_to "/cohabitants/educational"
     else
       redirect_to root_path
     end
   end
   
   def educational
-    @cohabitant = Cohabitant.where(id: params[:id]).first
+    @cohabitant = current_user.cohabitant
     if @cohabitant.present?
       @education = @cohabitant.build_cohabitant_education if @cohabitant.cohabitant_education.nil?
       @education = @cohabitant.cohabitant_education if @cohabitant.cohabitant_education.present?
@@ -63,14 +68,14 @@ class CohabitantsController < ApplicationController
   end
 
   def save_educational
-    @cohabitant = Cohabitant.where(id: params[:id]).first
+    @cohabitant = current_user.cohabitant
     if @cohabitant.present?
       if @cohabitant.cohabitant_education.nil?
         @education = @cohabitant.build_cohabitant_education(education_params).save
       else
         @education = @cohabitant.cohabitant_education.update_attributes(education_params)
       end
-      redirect_to "/cohabitants/#{@cohabitant.id}/family"
+      redirect_to "/cohabitants/family"
     else
       redirect_to root_path
     end
@@ -81,7 +86,7 @@ class CohabitantsController < ApplicationController
   end
   
   def family
-    @cohabitant = Cohabitant.where(id: params[:id]).first
+    @cohabitant = current_user.cohabitant
     if @cohabitant.present?
       @education = @cohabitant.build_cohabitant_family({has_father: true, has_mother: true}) if @cohabitant.cohabitant_family.nil?
 
@@ -92,21 +97,21 @@ class CohabitantsController < ApplicationController
   end
 
   def save_family
-    @cohabitant = Cohabitant.where(id: params[:id]).first
+    @cohabitant = current_user.cohabitant
     if @cohabitant.present?
       if @cohabitant.cohabitant_family.nil?
         @education = @cohabitant.build_cohabitant_family(family_params).save
       else
         @education = @cohabitant.cohabitant_family.update_attributes(family_params)
       end
-      redirect_to "/cohabitants/#{@cohabitant.id}/expectation"
+      redirect_to "/cohabitants/expectation"
     else
       redirect_to root_path
     end
   end
   
   def expectation
-    @cohabitant = Cohabitant.where(id: params[:id]).first
+    @cohabitant = current_user.cohabitant
     if @cohabitant.present?
       @expection = @cohabitant.build_cohabitant_expectation if @cohabitant.cohabitant_expectation.nil?
 

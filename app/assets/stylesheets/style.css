@@ -1204,7 +1204,7 @@ td.day_label {
 .nav-tabs1>li{
   margin-bottom:0;
 }
-a#profile-tab, a#home-tab, a#profile-tab1{
+a#profile-tab, a#home-tab, a#profile-tab1, a#horoscope-tab{
   color: #fff;
 } 
 .grid_3{

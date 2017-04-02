@@ -5,4 +5,8 @@ class Cohabitant < ActiveRecord::Base
   has_one :cohabitant_address
   has_one :cohabitant_family
   has_one :cohabitant_expectation
+  has_many :photos
+  belongs_to :user
+
+
 end

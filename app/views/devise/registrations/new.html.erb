@@ -14,19 +14,19 @@
 	<div class="col-sm-4 paddingL0 ">
 	  <div class="form-group">
 	    <%= f.label :first_name, "First Name *" %><br />
-	    <%= f.text_field :first_name, autofocus: true , class: "form-text", required: true %>
+	    <%= f.text_field :first_name, autofocus: true , class: "form-text", required: true, placeholder: "First Name" %>
 	  </div>
 	</div>
 	<div class="col-sm-4">
 	  <div class="form-group">
 	    <%= f.label :middle,  "Middle Name *"%><br />
-	    <%= f.text_field :middle_name, autofocus: true , class: "form-text", required: true %>
+	    <%= f.text_field :middle_name, autofocus: true , class: "form-text", required: true, placeholder: "Middle Name" %>
 	  </div>
 	</div>
 	<div class="col-sm-4">
 	  <div class="form-group">
 	    <%= f.label :last_name,  "Last Name *"%><br />
-	    <%= f.text_field :last_name, autofocus: true , class: "form-text", required: true %>
+	    <%= f.text_field :last_name, autofocus: true , class: "form-text", required: true, placeholder: "Last Name" %>
 	  </div>
 	</div>
       </div>
@@ -49,7 +49,7 @@
 	</div>
 	<div class="col-sm-6">
 	  <div class="age_select">
-	    <label for="select-age">Age <span class="form-required" title="This field is required.">*</span></label>
+	    <label for="select-age">DOB <span class="form-required" title="This field is required.">*</span></label>
 	    
           </div>
 	</div>
@@ -58,13 +58,13 @@
 	<div class="col-sm-6 paddingL0 ">
 	  <div class="form-group">
 	    <%= f.label :mobile, "Mobile *" %><br />
-	    <%= f.text_field :mobile, autofocus: true , class: "form-text" , required: true, :pattern => '^[0-9]{10}$',  onkeypress: "return event.charCode >= 48 && event.charCode <= 57", maxlength: "10" %>
+	    <%= f.text_field :mobile, autofocus: true , class: "form-text" , required: true, :pattern => '^[0-9]{10}$',  onkeypress: "return event.charCode >= 48 && event.charCode <= 57", maxlength: "10", placeholder: "Mobile" %>
 	  </div>
 	</div>
 	<div class="col-sm-6">
 	  <div class="form-group">
 	    <%= f.label :email, "Email *" %><br />
-	    <%= f.email_field :email, autofocus: true , class: "form-text", required: true%>
+	    <%= f.email_field :email, autofocus: true , class: "form-text", required: true, placeholder: "Email" %>
 	  </div>
 	</div>
       </div>
@@ -75,13 +75,13 @@
 	    <% if @validatable %>
 	    <em>(<%= @minimum_password_length %> characters minimum)</em>
 	    <% end %><br />
-	    <%= f.password_field :password, autocomplete: "off", class: "form-text", required: true %>
+	    <%= f.password_field :password, autocomplete: "off", class: "form-text", required: true, placeholder: "Password"  %>
 	  </div>
 	</div>
 	<div class="col-sm-6">
 	  <div class="form-group">
 	    <%= f.label :password_confirmation, "Confirm *" %><br />
-	    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-text", required: true %>
+	    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-text", required: true, placeholder: "Confirm Password" %>
 	  </div>
 	</div>
       </div>

@@ -8,7 +8,7 @@
       </ul>
     </div>
     <div class="services">
-      <%= form_for @education, url: save_family_cohabitant_path(@cohabitant), :method => "post" do |f| %>
+      <%= form_for @education, url: save_family_cohabitants_path, :method => "post" do |f| %>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-3 paddingL0">
 	    <div class="form-group">
@@ -26,7 +26,7 @@
 	  <div class="col-sm-6 ">
 	    <div class="form-group">
 	      <label for="cohabitant_family_parents_occupation"> Parents Occupation<span class="form-required" title="This field is required.">*</span></label>
-	      <%= f.text_field :parents_occupation, autofocus: true , class: "form-text" , maxlength: "20", placeholder: "Parents Opucation" %>
+	      <%= f.select :parents_occupation, options_for_select([ "BUSINESS", "PRIVATE SERVICE", "FARMER", "GOVERNMENT SERVICE"], f.object.parents_occupation || "BUSINESS"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	</div>
@@ -65,7 +65,7 @@
 	  <div class="col-sm-6">
 	    <div class="form-group">
 	      <label for="cohabitant_family_surnames_of_relatives">Surnames Of Relatives <Span class="form-required" title="This field is required.">*</span></label>
-	      <%= f.text_field :surnames_of_relatives, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Surname Of Relatives " %>
+	      <%= f.text_field :surnames_of_relatives, autofocus: true , class: "form-text" , maxlength: "100", placeholder: "Surname Of Relatives ", onkeypress: "return (event.charCode >= 65 && event.charCode <= 90)||(event.charCode >= 97 && event.charCode <= 122) || event.charCode === 44 || event.charCode === 32" %>
 	    </div>
 	  </div>
 	</div>
@@ -74,13 +74,13 @@
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
 	      <label for="cohabitant_family_native_district"> Native District<span class="form-required" title="This field is required.">*</span></label>
-	      <%= f.text_field :native_district, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Native District" %>
+	      <%= f.text_field :native_district, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Native District", onkeypress: "return (event.charCode >= 65 && event.charCode <= 90)||(event.charCode >= 97 && event.charCode <= 122) || event.charCode === 44 || event.charCode === 32" %>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
 	      <label for="cohabitant_family_native_taluka">Native Taluka <Span class="form-required" title="This field is required.">*</span></label>
-	      <%= f.text_field :native_taluka, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Native Taluka" %>
+	      <%= f.text_field :native_taluka, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Native Taluka", onkeypress: "return (event.charCode >= 65 && event.charCode <= 90)||(event.charCode >= 97 && event.charCode <= 122) || event.charCode === 44 || event.charCode === 32" %>
 	    </div>
 	  </div>
 	</div>
@@ -88,13 +88,13 @@
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
 	      <label for="cohabitant_family_family_wealth"> Family Wealth<span class="form-required" title="This field is required.">*</span></label>
-	      <%= f.text_field :family_wealth, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Family Wealth " %>
+	      <%= f.text_field :family_wealth, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Family Wealth ", onkeypress: "return (event.charCode >= 65 && event.charCode <= 90)||(event.charCode >= 97 && event.charCode <= 122) || event.charCode === 44 || event.charCode === 32" %>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
 	      <label for="cohabitant_family_mamas_name">Mamas Name <Span class="form-required" title="This field is required.">*</span></label>
-	      <%= f.text_field :mamas_name, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Mamas Name " %>
+	      <%= f.text_field :mamas_name, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Mamas Name ", onkeypress: "return (event.charCode >= 65 && event.charCode <= 90)||(event.charCode >= 97 && event.charCode <= 122) || event.charCode === 44 || event.charCode === 32" %>
 	    </div>
 	  </div>
 	</div>
@@ -102,7 +102,7 @@
 	<div class="col-sm-12 padding0 ">
 	  <div class="form-actions">
 	    <input type="submit" id="edit-submit" name="op" value="Next" class="btn_1 submit">
-	    <a href="/cohabitants/<%= @cohabitant.id%>/expectation" class="skipLink">Skip</a>
+	    <a href="/cohabitants/expectation" class="skipLink">Skip</a>
 	  </div>
 	</div>
       <%- end %>

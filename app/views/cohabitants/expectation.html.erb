@@ -8,12 +8,12 @@
       </ul>
     </div>
     <div class="services">
-      <%= form_for @expectation, url: save_expectation_cohabitant_path(@cohabitant), :method => "post" do |f| %>
+      <%= form_for @expectation, url: save_expectation_cohabitants_path(@cohabitant), :method => "post" do |f| %>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
 	      <label for="cohabitant_expectation_cities"> Cities<span class="form-required" title="This field is required.">*</span></label>
-	      <%= f.text_field :cities, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "City" %>
+	      <%= f.text_field :cities, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "CITY" %>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
@@ -27,7 +27,7 @@
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
 	      <label for="cohabitant_expectation_caste"> caste<span class="form-required" title="This field is required.">*</span></label>
-	      <%= f.select "caste", options_for_select([ "DESHMUKH", "96 KULI", "MARATHA", "KUNBI", "DESHMUKH MARATHA", "96 KULI MARATHA", "TIRALE KUNBI" ], f.object.caste || "MARATHA"), {}, class: "form-select"%>
+	      <%= f.select "caste", options_for_select([ "MARATHA", "96 KULI", "DESHMUKH", "KUNBI", "TIRALE KUNBI" ], f.object.caste || "MARATHA"), {}, class: "form-select"%>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
@@ -42,7 +42,7 @@
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
 	      <label for="cohabitant_expectation_min_height"> Min Height<span class="form-required" title="This field is required.">*</span></label>
-	      <%= f.text_field :min_height, autofocus: true , class: "form-text" , onkeypress: "return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46", maxlength: "5", placeholder: "Min Height" %>
+	      <%= f.text_field :min_height, autofocus: true , class: "form-text" , onkeypress: "return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46", maxlength: "5", placeholder: "MIN HEIGHT" %>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
@@ -57,13 +57,13 @@
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
 	      <label for="cohabitant_expectation_occupation"> Occupation<span class="form-required" title="This field is required.">*</span></label>
-	      <%= f.text_field :occupation, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Occupation" %>
+	      <%= f.text_field :occupation, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "OCCUPATION" %>
 	    </div>
 	  </div>
 	  <div class="col-sm-6">
 	    <div class="form-group">
 	      <label for="cohabitant_expectation_education">Education <Span class="form-required" title="This field is required.">*</span></label>
-	      <%= f.text_field :education, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "Education" %>
+	      <%= f.text_field :education, autofocus: true , class: "form-text" , maxlength: "40", placeholder: "EDUCATION" %>
 	    </div>
 	  </div>
 	</div>

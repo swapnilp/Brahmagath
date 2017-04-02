@@ -11,8 +11,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :cohabitants do
-
-    member do
+    collection do
       get "personal"
       get "horoscop"
       get "educational"
@@ -26,6 +25,7 @@ Rails.application.routes.draw do
       post "save_expectation"
     end
   end
+  
   get "about" => "home#about"
   get "search" => "home#search"
   get "contact" => "home#contact"

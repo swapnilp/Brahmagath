@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem "font-awesome-rails"
 gem 'devise'
+gem "paperclip", "~> 5.0.0"
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

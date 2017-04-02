@@ -8,7 +8,7 @@
       </ul>
     </div>
     <div class="services">
-      <%= form_for @horoscope, url: save_horoscop_cohabitant_path(@cohabitant), :method => "post" do |f| %>
+      <%= form_for @horoscope, url: save_horoscop_cohabitants_path, :method => "post" do |f| %>
 	<div class="col-sm-12 padding0">
 	  <div class="col-sm-6 paddingL0">
 	    <div class="form-group">
@@ -76,7 +76,7 @@
 	<div class="col-sm-12 padding0 ">
 	  <div class="form-actions">
 	    <input type="submit" id="edit-submit" name="op" value="Next" class="btn_1 submit">
-	    <a href="/cohabitants/<%= @cohabitant.id%>/educational" class="skipLink">Skip</a>
+	    <a href="/cohabitants/educational" class="skipLink">Skip</a>
 	  </div>
 	</div>
       <%- end %>

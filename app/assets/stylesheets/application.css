@@ -56,3 +56,17 @@ ul.nav_1 li a{
 .skipLink{
   margin-left:20px;
 }
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position :absolute;
+}
+
+.nextBtn{
+  top: 15px;
+  right:0;
+  cursor: pointer;
+}
