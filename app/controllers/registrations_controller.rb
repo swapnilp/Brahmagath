@@ -19,7 +19,7 @@ class RegistrationsController < Devise::RegistrationsController
         expire_data_after_sign_in!
         #respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
-      cohabitant = Cohabitant.new({user_id: resource.id, first_name: resource.first_name, last_name: resource.last_name, mobile: resource.mobile, middle_name: "asdasdads", date_of_birth: Date.today})
+      cohabitant = Cohabitant.new({user_id: resource.id, first_name: resource.first_name, last_name: resource.last_name, mobile: resource.mobile, middle_name: "asdasdads", date_of_birth: Date.today, gender: resource.gender})
       if cohabitant.save
         respond_with resource, location: personal_cohabitants_path(cohabitant)
       else

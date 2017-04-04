@@ -6,10 +6,10 @@ class CohabitantsController < ApplicationController
     if params[:gender].present?
       @cohabitants = @cohabitants.where(gender: params[:gender])
     end
-    if current_user.present?
-      @cohabitants = @cohabitants.where("user_id not in (?)", [current_user.id] )
-      
-    end
+    #if current_user.present?
+    #  @cohabitants = @cohabitants.where("user_id not in (?)", [current_user.id] )
+    #  
+    #end
     @cohabitants = @cohabitants.order("id desc").page(params[:page])
       
   end
@@ -138,14 +138,14 @@ class CohabitantsController < ApplicationController
   end
 
   def save_expectation
-    @cohabitant = Cohabitant.where(id: params[:id]).first
+    @cohabitant = current_user.cohabitant
     if @cohabitant.present?
       if @cohabitant.cohabitant_expectation.nil?
         @expectation = @cohabitant.build_cohabitant_expectation(expectation_params).save
       else
         @expectation = @cohabitant.cohabitant_expectation.update_attributes(expectation_params)
       end
-      redirect_to root_path
+      redirect_to "/cohabitants/#{@cohabitant.id}"
     else
       redirect_to root_path
     end

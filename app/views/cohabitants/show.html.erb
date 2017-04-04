@@ -40,6 +40,7 @@
 		<div id="myTabContent" class="tab-content">
 		  <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 		    <div class="basic_1">
+		      <%- if @self_user %><a class="pull-right" href="/cohabitants/personal">Edit</a><%- end %>
 		      <h3>Basics</h3>
 		      <div class="col-md-6 basic_1-left">
 			<table class="table_working_hours">
@@ -88,6 +89,7 @@
 		    </div>
 		    
 		    <div class="basic_1 basic_2">
+		      <%- if @self_user %><a class="pull-right" href="/cohabitants/educational">Edit</a><%- end %>
 		      <h3>Education</h3>
 		      <div class="basic_1-left">
 			<table class="table_working_hours">
@@ -126,6 +128,7 @@
 		  </div>
 		  <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
 		    <div class="basic_3">
+		      <%- if @self_user %><a class="pull-right" href="/cohabitants/family">Edit</a><%- end %>
 		      <h4>Family Details</h4>
 		      <div class="basic_1 basic_2">
 			<div class="col-md-6 basic_1-left">
@@ -175,6 +178,7 @@
 		  </div>
 		  <div role="tabpanel" class="tab-pane fade in" id="horoscope" aria-labelledby="horoscope-tab">
 		    <div class="basic_3">
+		      <%- if @self_user %><a class="pull-right" href="/cohabitants/horoscop">Edit</a><%- end %>
 		      <h4>Horoscope</h4>
 		      <div class="basic_1 basic_2">
 			<div class="col-md-6 basic_1-left">
@@ -232,6 +236,7 @@
 		  </div>
 		  <div role="tabpanel" class="tab-pane fade" id="profile1" aria-labelledby="profile-tab1">
 		    <div class="basic_1 basic_2">
+		      <%- if @self_user %><a class="pull-right" href="/cohabitants/expectation">Edit</a><%- end %>
 		      <div class="basic_1-left">
 			<table class="table_working_hours">
 			  <tbody>
