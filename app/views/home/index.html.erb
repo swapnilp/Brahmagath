@@ -85,48 +85,15 @@
       <span class="grey-line"></span>
     </div>
     <ul id="flexiselDemo3">
+      <%- @cohabitants.each do |cohabitant| %>
       <li><div class="col_1"><a href="cohabitants/1">
-	    <img src="/assets/1.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
+	    <img src="<%= cohabitant.profile_image%>" alt="" class="hover-animation image-zoom-in img-responsive"/>
             <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-              <div class="center-middle">About Him</div>
+              <div class="center-middle"><%= cohabitant.last_name.upcase %></div>
             </div>
-            <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
+            <h3><span class="m_3">Profile ID : MI-387412</span><br><%= cohabitant.cohabitant_education.try(:area)%><br><%= cohabitant.cohabitant_education.try(:occupation)%></h3></a></div>
       </li>
-      <li><div class="col_1"><a href="cohabitants/1">
-	    <img src="/assets/2.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-            <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-              <div class="center-middle">About Her</div>
-            </div>
-            <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
-      </li>
-      <li><div class="col_1"><a href="cohabitants/1">
-	    <img src="/assets/3.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-            <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-              <div class="center-middle">About Him</div>
-            </div>
-            <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
-      </li>
-      <li><div class="col_1"><a href="cohabitants/1">
-	    <img src="/assets/4.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-            <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-              <div class="center-middle">About Her</div>
-            </div>
-            <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
-      </li>
-      <li><div class="col_1"><a href="cohabitants/1">
-	    <img src="/assets/5.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-            <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-              <div class="center-middle">About Him</div>
-            </div>
-            <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
-      </li>
-      <li><div class="col_1"><a href="cohabitants/1">
-	    <img src="/assets/6.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-            <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-              <div class="center-middle">About Her</div>
-            </div>
-            <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
-      </li>
+      <%- end %>
     </ul>
     <script type="text/javascript">
       
